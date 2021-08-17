@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "SFProText";
+  font-weight: 300;
+  src: local("SFProText"), url("../fonts/SFProText-Light.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "SFProText";
+  font-weight: 400;
+  src: local("SFProText"), url("../fonts/SFProText-Regular.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "SFProText";
+  font-weight: 500;
+  src: local("SFProText"), url("../fonts/SFProText-Medium.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "SFProText";
+  font-weight: 600;
+  src: local("SFProText"), url("../fonts/SFProText-SemiBold.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "SFProText";
+  font-weight: 700;
+  src: local("SFProText"), url("../fonts/SFProText-Bold.ttf") format("truetype")
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "SFProText", sans-serif;
+}
+
+.button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
