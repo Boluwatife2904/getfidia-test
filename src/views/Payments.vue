@@ -374,6 +374,10 @@ export default {
     box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
       0px 0px 0px 1px rgba(60, 66, 87, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
+
+    @media screen and (max-width:1200px) {
+      display: none;
+    }
   }
 }
 
@@ -423,10 +427,10 @@ export default {
   }
 
   .description {
-    // flex: 0 0 50%;
-    // max-width: 50%;
-    // width: 100%;
-    width: 550px;
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 100%;
+    // width: 550px;
     flex-shrink: 0;
   }
 
