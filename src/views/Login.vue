@@ -44,13 +44,13 @@
               <i class="fa fa-eye"></i>
             </button>
           </div>
-          <div class="custom-checkbox">
-            <label for="data" class="checkbox">
-              <input type="checkbox" class="input" id="data" checked />
-              <div class="custom-check"></div>
-              Stay signed in for a week
-            </label>
-          </div>
+          <!-- CUSTOM CHECKBOX -->
+          <custom-check
+            id="signedIn"
+            :checked="true"
+            label="Stay signed in for a week"
+          >
+          </custom-check>
           <button type="submit" class="button submit">Continue</button>
           <button type="button" class="button sso-button">
             Use single sign-on (SSO) instead
@@ -84,7 +84,9 @@
 
 <script>
 import { ref } from "vue";
+import CustomCheck from "../components/CustomCheck.vue";
 export default {
+  components: { CustomCheck },
   name: "Login",
   setup() {
     const passwordType = ref("password");
@@ -194,53 +196,6 @@ export default {
           right: 15px;
           font-size: 18px;
           color: #a3acb9;
-        }
-      }
-
-      // Custom Checkbox
-      .custom-checkbox {
-        .checkbox {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-          margin-bottom: 15px;
-          color: var(--grayEight);
-          font-size: 14px;
-          font-weight: normal;
-
-          .input {
-            display: none;
-          }
-
-          .custom-check {
-            width: 16px;
-            height: 16px;
-            border: 2px solid #dfe3e8;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 6px;
-            flex-shrink: 0;
-            transition: all 0.15s linear;
-
-            &::after {
-              content: "\2714";
-              color: #ffffff;
-              transition: all 0.15s;
-              transform: scale(0);
-              font-size: 12px;
-            }
-          }
-        }
-
-        .input:checked + .custom-check {
-          background: var(--purpleColor);
-          border-color: var(--purpleColor);
-        }
-
-        .input:checked + .custom-check::after {
-          transform: scale(1);
         }
       }
 

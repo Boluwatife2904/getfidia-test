@@ -1,23 +1,23 @@
 <template>
   <div class="page-layout">
-    <TheSidebar />
+    <TheSidebar :visible="showSidebar" />
     <div class="main-content">
       <TheNavbar />
       <div class="content-wrapper">
         <div class="header">
-          <h1>Payments</h1>
+          <h1 @click="toggleSidebar">Payments</h1>
           <ul class="actions">
             <li>
-              <button class="button">
+              <the-button>
                 <img src="@/assets/images/filter-icon.svg" alt="filter-icon" />
                 Filter
-              </button>
+              </the-button>
             </li>
             <li>
-              <button class="button">
+              <the-button>
                 <img src="@/assets/images/export-icon.svg" alt="export-icon" />
                 Export
-              </button>
+              </the-button>
             </li>
             <li>
               <router-link to="/">
@@ -58,17 +58,12 @@
             <div class="table">
               <div class="table-header">
                 <div class="column-name check">
-                  <span class="custom-checkbox">
-                    <label for="checkAll" class="checkbox">
-                      <input
-                        @click="selectAll"
-                        type="checkbox"
-                        class="input"
-                        id="checkAll"
-                      />
-                      <div class="custom-check"></div>
-                    </label>
-                  </span>
+                  <!-- CUSTOM CHECKBOX -->
+                  <custom-check
+                    @perform-action="selectAll"
+                    id="checkAll"
+                    :checked="false"
+                  ></custom-check>
                 </div>
                 <div class="column-name amount">Amount</div>
                 <div class="column-name description">Description</div>
@@ -91,8 +86,8 @@
             <p>16 <span>results</span></p>
           </div>
           <div class="actions">
-            <button disabled class="button previous">Previous</button>
-            <button class="button next">Next</button>
+            <the-button :disabled="true">Previous</the-button>
+            <the-button>Next</the-button>
           </div>
         </div>
       </div>
@@ -106,14 +101,20 @@ import { ref } from "vue";
 import TheNavbar from "../components/TheNavbar.vue";
 import TheSidebar from "../components/TheSidebar.vue";
 import TableItem from "../components/TableItem.vue";
+import CustomCheck from "../components/CustomCheck.vue";
+import TheButton from "../components/TheButton.vue";
 export default {
-  components: { TheSidebar, TheNavbar, TableItem },
+  components: { TheSidebar, TheNavbar, TableItem, CustomCheck, TheButton },
   name: "Payments",
 
   setup() {
     const filter = ref("succeeded");
+    const showSidebar = ref(false);
     const changeFilter = (newFilter) => {
       filter.value = newFilter;
+    };
+    const toggleSidebar = () => {
+      showSidebar.value = !showSidebar.value;
     };
     const data = ref([
       {
@@ -231,10 +232,19 @@ export default {
     ]);
     const selectAll = () => {
       data.value.forEach((item) => {
-        item.checked = item.checked ? (item.checked = false) : (item.checked = true);
+        item.checked = item.checked
+          ? (item.checked = false)
+          : (item.checked = true);
       });
     };
-    return { filter, changeFilter, data, selectAll };
+    return {
+      filter,
+      changeFilter,
+      data,
+      selectAll,
+      showSidebar,
+      toggleSidebar,
+    };
   },
 };
 </script>
@@ -276,22 +286,6 @@ export default {
           gap: 8px;
 
           li {
-            button {
-              background: #ffffff;
-              box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
-                0px 0px 0px 1px rgba(60, 66, 87, 0.16),
-                0px 1px 1px rgba(0, 0, 0, 0.12);
-              border-radius: 4px;
-              font-weight: 500;
-              font-size: 14px;
-              line-height: 17px;
-              color: var(--grayEight);
-              padding: 6px 8px;
-              display: flex;
-              align-items: center;
-              gap: 6px;
-            }
-
             a {
               text-decoration: none;
               background: var(--blueColor);
@@ -386,54 +380,6 @@ export default {
             .check {
               width: 20px;
               flex-shrink: 0;
-
-              // Custom Checkbox
-              .custom-checkbox {
-                .checkbox {
-                  cursor: pointer;
-                  margin-bottom: 15px;
-                  color: var(--grayEight);
-                  font-size: 14px;
-                  font-weight: normal;
-
-                  .input {
-                    display: none;
-                  }
-
-                  .custom-check {
-                    width: 16px;
-                    height: 16px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 6px;
-                    flex-shrink: 0;
-                    transition: all 0.15s linear;
-                    background: #ffffff;
-                    box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
-                      0px 0px 0px 1px rgba(60, 66, 87, 0.16),
-                      0px 1px 1px rgba(0, 0, 0, 0.12);
-                    border-radius: 4px;
-
-                    &::after {
-                      content: "\2714";
-                      color: #ffffff;
-                      transition: all 0.15s;
-                      transform: scale(0);
-                      font-size: 12px;
-                    }
-                  }
-                }
-
-                .input:checked + .custom-check {
-                  background: var(--purpleColor);
-                  border-color: var(--purpleColor);
-                }
-
-                .input:checked + .custom-check::after {
-                  transform: scale(1);
-                }
-              }
             }
 
             .amount {
@@ -512,26 +458,6 @@ export default {
         .actions {
           display: flex;
           gap: 8px;
-
-          button {
-            padding: 6px 8px;
-            background: #ffffff;
-            box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
-              0px 0px 0px 1px rgba(60, 66, 87, 0.16),
-              0px 1px 1px rgba(0, 0, 0, 0.12);
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 17px;
-            color: var(--grayEight);
-
-            &:disabled {
-              opacity: 0.5;
-              box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
-                0px 0px 0px 1px rgba(60, 66, 87, 0.16),
-                0px 1px 1px rgba(0, 0, 0, 0.12);
-            }
-          }
         }
       }
     }
