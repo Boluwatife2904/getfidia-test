@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <div class="container">
-      <h1>Hello there &#x1F44B;,</h1>
+      <h1>Hello there &#x1F44B;</h1>
       <p>
         Below, you will find the links to the two pages in the Figma design of
         the task attached in the job opening.
@@ -43,7 +43,7 @@ export default {
     }
 
     p {
-      color: var(--gray);
+      color: var(--grayEight);
       font-size: 14px;
       line-height: 24px;
     }

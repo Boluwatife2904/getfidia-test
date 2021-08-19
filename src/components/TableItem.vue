@@ -40,7 +40,7 @@ li {
   align-items: center;
   padding: 14px 0 14px 4px;
   width: 100%;
-  border-bottom: 1px solid #e3e8ee;
+  border-bottom: 1px solid var(--borderColor);
 
   .check {
     width: 20px;
@@ -103,13 +103,13 @@ li {
     padding-right: 16px;
     gap: 8px;
     text-align: right;
-    color: #1a1f36;
+    color: var(--grayNine);
   }
 
   .description {
     font-size: 13px;
     line-height: 16px;
-    color: #4f566b;
+    color: var(--graySeven);
   }
 }
 

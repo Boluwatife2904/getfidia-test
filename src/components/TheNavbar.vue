@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   padding: 20px 40px;
-  border-bottom: 1px solid #e3e8ee;
+  border-bottom: 1px solid var(--borderColor);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,13 +49,14 @@ export default {
   .search-bar {
     form {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
 
       input {
         font: inherit;
         border: none;
         outline: none;
+        font-size: 14px;
       }
     }
   }

@@ -234,7 +234,7 @@ export default {
           font-weight: bold;
           font-size: 28px;
           line-height: 33px;
-          color: #1a1f36;
+          color: var(--grayNine);
         }
 
         .actions {
@@ -252,7 +252,7 @@ export default {
               font-weight: 500;
               font-size: 14px;
               line-height: 17px;
-              color: #3c4257;
+              color: var(--grayEight);
               padding: 6px 8px;
               display: flex;
               align-items: center;
@@ -261,9 +261,10 @@ export default {
 
             a {
               text-decoration: none;
-              background: #5469d4;
+              background: var(--blueColor);
               box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
-                0px 0px 0px 1px #5469d4, 0px 1px 1px rgba(0, 0, 0, 0.12);
+                0px 0px 0px 1px var(--blueColor),
+                0px 1px 1px rgba(0, 0, 0, 0.12);
               border-radius: 4px;
               display: flex;
               align-items: center;
@@ -304,20 +305,20 @@ export default {
             font-weight: 500;
             font-size: 14px;
             line-height: 17px;
-            color: #697386;
+            color: var(--graySix);
             padding: 0 0 9px 0;
 
             &.active {
-              color: #5469d4;
-              box-shadow: 0px 2px 0px #5469d4;
+              color: var(--blueColor);
+              box-shadow: 0px 2px 0px var(--blueColor);
             }
           }
         }
-        
+
         // TABLE
         .table {
-          border-top: 1px solid #e3e8ee;
-          border-bottom: 1px solid #e3e8ee;
+          border-top: 1px solid var(--borderColor);
+          border-bottom: 1px solid var(--borderColor);
           display: block;
           width: 100%;
           overflow-x: auto;
@@ -347,7 +348,7 @@ export default {
             align-items: center;
             padding: 14px 0 14px 4px;
             width: 100%;
-            border-bottom: 1px solid #e3e8ee;
+            border-bottom: 1px solid var(--borderColor);
 
             .check {
               width: 20px;
@@ -400,7 +401,7 @@ export default {
               font-weight: 500;
               font-size: 11px;
               line-height: 13px;
-              color: #1a1f36;
+              color: var(--grayNine);
 
               &.amount {
                 padding-left: 16px;
@@ -431,7 +432,7 @@ export default {
             font-weight: 500;
             font-size: 14px;
             line-height: 17px;
-            color: #3c4257;
+            color: var(--grayEight);
 
             span {
               font-weight: 400;
@@ -453,7 +454,7 @@ export default {
             font-weight: 500;
             font-size: 14px;
             line-height: 17px;
-            color: #3c4257;
+            color: var(--grayEight);
 
             &:disabled {
               opacity: 0.5;

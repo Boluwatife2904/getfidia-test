@@ -122,7 +122,7 @@ export default {
     max-width: 542px;
     width: 90%;
     margin: auto;
-    border: 1px dashed #e3e8ee;
+    border: 1px dashed var(--borderColor);
     border-top: none;
     border-bottom: none;
 
@@ -146,20 +146,20 @@ export default {
         line-height: 30px;
         font-weight: 600;
         margin-bottom: 25px;
-        color: var(--gray);
+        color: var(--grayEight);
       }
 
       // Single Label plus Input
       .form-wrapper {
-        margin-bottom: 30px;
+        margin-bottom: 32px;
         position: relative;
 
         label {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 10px;
-          color: var(--gray);
+          margin-bottom: 12px;
+          color: var(--grayEight);
           font-size: 14px;
           line-height: 24px;
 
@@ -181,7 +181,7 @@ export default {
           padding: 13.5px 44px 13.5px 16px;
           border: 1px solid #d9dce1;
           border-radius: 5px;
-          color: #1a1f36;
+          color: var(--grayNine);
         }
 
         input:focus {
@@ -190,7 +190,7 @@ export default {
 
         .password-toggler {
           position: absolute;
-          top: 46px;
+          top: 50px;
           right: 15px;
           font-size: 18px;
           color: #a3acb9;
@@ -204,7 +204,7 @@ export default {
           align-items: center;
           cursor: pointer;
           margin-bottom: 15px;
-          color: var(--gray);
+          color: var(--grayEight);
           font-size: 14px;
           font-weight: normal;
 
@@ -252,7 +252,7 @@ export default {
         border-radius: 5px;
         padding: 13.5px 10px;
         color: #fff;
-        margin: 30px 0;
+        margin: 28px 0;
       }
 
       // SSO signin button
@@ -276,7 +276,7 @@ export default {
       // SIGN UP INSTEAD BUTTON
       .signup {
         font-size: 14px;
-        color: #4f566b;
+        color: var(--graySeven);
         margin-bottom: 15px;
 
         a {
@@ -293,7 +293,7 @@ export default {
         gap: 26px;
 
         .copyright {
-          color: #697386;
+          color: var(--graySix);
           font-size: 14px;
         }
 
@@ -315,12 +315,12 @@ export default {
               height: 3px;
               width: 3px;
               border-radius: 50%;
-              background: #697386;
+              background: var(--graySix);
             }
 
             a {
               text-decoration: none;
-              color: #697386;
+              color: var(--graySix);
               font-size: 14px;
             }
           }
@@ -341,7 +341,7 @@ export default {
   min-height: 100vh;
   opacity: 0.7;
   width: 1px;
-  background: #e3e8ee;
+  background: var(--borderColor);
 
   @media screen and (max-width: 940px) {
     display: none;
@@ -378,15 +378,19 @@ export default {
   }
 
   @media screen and (max-width: 1368px) {
-    top: calc(50% + 110px);
+    top: calc(50% - 30px);
   }
 
-    @media screen and (max-width: 1200px) {
-    top: calc(50% + 80px);
+  @media screen and (max-width: 1281px) {
+    top: calc(50% - 40px);
   }
 
   @media screen and (max-width: 992px) {
-    top: calc(50% + 75px);
+    top: calc(50% - 75px);
+  }
+
+  @media screen and (max-width: 768px) {
+    top: calc(50% - 90px);
   }
 }
 
@@ -402,15 +406,19 @@ export default {
   }
 
   @media screen and (max-width: 1368px) {
-    top: calc(50% + 140px);
+    top: calc(50% + 0px);
   }
 
-  @media screen and (max-width: 1200px) {
-    top: calc(50% + 110px);
+  @media screen and (max-width: 1281px) {
+    top: calc(50% - 10px);
   }
 
   @media screen and (max-width: 992px) {
-    top: calc(50% + 100px);
+    top: calc(50% - 50px);
+  }
+
+  @media screen and (max-width: 768px) {
+    top: calc(50% - 60px);
   }
 }
 
@@ -426,15 +434,19 @@ export default {
   }
 
   @media screen and (max-width: 1368px) {
-    top: calc(30% + 10px);
+    top: calc(30% - 75px);
   }
 
-   @media screen and (max-width: 1200px) {
-    top: calc(30% + 24px);
+  @media screen and (max-width: 1281px) {
+    top: calc(30% - 65px);
   }
 
   @media screen and (max-width: 992px) {
-    top: calc(30% + 50px);
+    top: calc(30% - 40px);
+  }
+
+  @media screen and (max-width: 768px) {
+    top: calc(30% - 15px);
   }
 }
 </style>

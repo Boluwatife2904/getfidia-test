@@ -121,7 +121,7 @@ export default {
   min-height: 100vh;
   height: 100%;
   background: #f7fafc;
-  box-shadow: inset -1px 0px 0px #e3e8ee;
+  box-shadow: inset -1px 0px 0px var(--borderColor);
   padding: 12px 20px 0px 20px;
   flex-shrink: 0;
 
@@ -143,11 +143,11 @@ export default {
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        color: #1a1f36;
+        color: var(--grayNine);
 
         i {
           margin-left: 5px;
-          color: #4f566b;
+          color: var(--graySeven);
           font-size: 14px;
         }
       }
@@ -168,11 +168,11 @@ export default {
         text-decoration: none;
         font-size: 14px;
         line-height: 17px;
-        color: #1a1f36;
+        color: var(--grayNine);
 
         &.router-link-active {
           font-weight: 600;
-          color: #5469d4;
+          color: --var(blueColor);
         }
       }
 
@@ -215,7 +215,7 @@ export default {
     cursor: pointer;
     font-size: 14px;
     line-height: 17px;
-    color: #1a1f36;
+    color: var(--grayNine);
   }
 
   .switch {
@@ -242,7 +242,7 @@ export default {
       left: 0;
       right: 0;
       bottom: 0;
-      background: #e3e8ee;
+      background: var(--borderColor);
       -webkit-transition: 0.4s;
       transition: 0.4s;
 
