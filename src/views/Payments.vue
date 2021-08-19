@@ -499,11 +499,12 @@ export default {
   color: #0e6245;
 }
 
-.table-wrapper {
-  display: block;
-  width: 1165px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
+// .table-wrapper {
+//   display: block;
+//   max-width: 1140px;
+//   width: 1140px;
+//   overflow-x: auto;
+//   -webkit-overflow-scrolling: touch;
+//   -ms-overflow-style: -ms-autohiding-scrollbar;
+// }
 </style>
