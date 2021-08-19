@@ -65,26 +65,11 @@
                 <div class="column-name actions"></div>
               </div>
               <ul class="table-content">
-                <li v-for="item in data" :key="item.description">
-                  <div class="check"><span></span></div>
-                  <div class="amount">
-                    US${{ item.amount }}
-                    <span class="status"
-                      >Succeeded
-                      <img src="@/assets/images/checkmark.svg" alt="checkmark"
-                    /></span>
-                  </div>
-                  <div class="description">
-                    {{ item.description }}
-                  </div>
-                  <div class="customer">{{ item.customer }}</div>
-                  <div class="date">{{ item.date }}</div>
-                  <div class="actions">
-                    <button class="button">
-                      <img src="@/assets/images/dots.svg" alt="dots">
-                    </button>
-                  </div>
-                </li>
+                <TableItem
+                  v-for="item in data"
+                  :key="item.description"
+                  :item="item"
+                />
               </ul>
             </div>
           </div>
@@ -108,8 +93,9 @@
 import { ref } from "vue";
 import TheNavbar from "../components/TheNavbar.vue";
 import TheSidebar from "../components/TheSidebar.vue";
+import TableItem from "../components/TableItem.vue";
 export default {
-  components: { TheSidebar, TheNavbar },
+  components: { TheSidebar, TheNavbar, TableItem },
   name: "Payments",
 
   setup() {
@@ -221,6 +207,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// PAGE LAYOUT
 .page-layout {
   display: flex;
   align-items: flex-start;
@@ -236,6 +223,7 @@ export default {
     .content-wrapper {
       padding: 0 40px;
 
+      // HEADER SHOWING "PAYMENT" AND THE THREE ACTION BUTTONS
       .header {
         display: flex;
         align-items: center;
@@ -288,11 +276,23 @@ export default {
             }
           }
         }
+
+        @media screen and (max-width: 576px) {
+          align-items: flex-start;
+          flex-direction: column;
+
+          .actions {
+            margin-left: auto;
+            margin-top: 8px;
+          }
+        }
       }
 
+      // TABLE RECORDS
       .payments {
         margin-bottom: 20px;
 
+        // TABS FOR CHANGING TABLE STATUS
         .navigation {
           list-style: none;
           display: flex;
@@ -313,13 +313,113 @@ export default {
             }
           }
         }
-
+        
+        // TABLE
         .table {
           border-top: 1px solid #e3e8ee;
           border-bottom: 1px solid #e3e8ee;
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          -ms-overflow-style: -ms-autohiding-scrollbar;
+
+          /* CUSTOM CSS SCROLLBAR */
+          &::-webkit-scrollbar {
+            height: 8px;
+            display: none;
+          }
+          &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: rgb(182, 182, 182);
+            border-radius: 100px;
+          }
+          &::-webkit-scrollbar-thumb:hover {
+            background: rgb(142, 142, 142);
+          }
+
+          // TABLE HEADER
+          .table-header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 14px 0 14px 4px;
+            width: 100%;
+            border-bottom: 1px solid #e3e8ee;
+
+            .check {
+              width: 20px;
+              flex-shrink: 0;
+
+              span {
+                cursor: pointer;
+                display: block;
+                background: #ffffff;
+                height: 14px;
+                width: 14px;
+                box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
+                  0px 0px 0px 1px rgba(60, 66, 87, 0.16),
+                  0px 1px 1px rgba(0, 0, 0, 0.12);
+                border-radius: 4px;
+              }
+            }
+
+            .amount {
+              width: 195px;
+              flex-shrink: 0;
+            }
+
+            .description {
+              flex: 0 0 50%;
+              max-width: 50%;
+              width: 100%;
+              flex-shrink: 0;
+            }
+
+            .customer {
+              width: 170px;
+              flex-shrink: 0;
+            }
+
+            .date {
+              width: 120px;
+              flex-shrink: 0;
+            }
+
+            .actions {
+              margin-left: auto;
+              flex-shrink: 0;
+              text-align: right;
+              padding-right: 16px;
+            }
+
+            .column-name {
+              text-transform: uppercase;
+              font-weight: 500;
+              font-size: 11px;
+              line-height: 13px;
+              color: #1a1f36;
+
+              &.amount {
+                padding-left: 16px;
+              }
+
+              &.description {
+                padding-left: 10px;
+              }
+            }
+          }
+
+          // ITEMS WRAPPER
+          .table-content {
+            list-style: none;
+          }
         }
       }
 
+      // FOOTER SHOWING NUMBER OF RECORD WITH PREV AND NEXT BUTTONS
       .footer {
         display: flex;
         justify-content: space-between;
@@ -367,6 +467,7 @@ export default {
     }
   }
 
+  // CHECKBOX AT TOP RIGHT CORNER OF PAGE
   .checkbox {
     background: #ffffff;
     height: 14px;
@@ -375,148 +476,9 @@ export default {
       0px 0px 0px 1px rgba(60, 66, 87, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
 
-    @media screen and (max-width:1200px) {
+    @media screen and (max-width: 1200px) {
       display: none;
     }
   }
-}
-
-.table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.table-header,
-.table-content li {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  padding: 14px 0 14px 4px;
-  width: 100%;
-  border-bottom: 1px solid #e3e8ee;
-
-  .check {
-    // flex: 0 0 4%;
-    // max-width: 4%;
-    // width: 100%;
-    // padding-left: 10px;
-    width: 20px;
-    flex-shrink: 0;
-
-    span {
-      cursor: pointer;
-      display: block;
-      background: #ffffff;
-      height: 14px;
-      width: 14px;
-      box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
-        0px 0px 0px 1px rgba(60, 66, 87, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.12);
-      border-radius: 4px;
-    }
-  }
-
-  .amount {
-    // flex: 0 0 17%;
-    // max-width: 17%;
-    width: 195px;
-    // width: 100%;
-    flex-shrink: 0;
-  }
-
-  .description {
-    flex: 0 0 50%;
-    max-width: 50%;
-    width: 100%;
-    // width: 550px;
-    flex-shrink: 0;
-  }
-
-  .customer {
-    // flex: 0 0 15%;
-    // max-width: 15%;
-    // width: 100%;
-    width: 170px;
-    flex-shrink: 0;
-  }
-
-  .date {
-    // flex: 0 0 10%;
-    // max-width: 10%;
-    // width: 100%;
-    width: 120px;
-    flex-shrink: 0;
-  }
-
-  .actions {
-    // flex: 1;
-    // width: 100%;
-    margin-left: auto;
-    flex-shrink: 0;
-    text-align: right;
-    padding-right: 16px;
-  }
-
-  .column-name {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 13px;
-    color: #1a1f36;
-
-    &.amount {
-      padding-left: 16px;
-    }
-
-    &.description {
-      padding-left: 10px;
-    }
-  }
-}
-
-.table-content {
-  list-style: none;
-
-  li {
-    div {
-      font-size: 14px;
-      line-height: 17px;
-      color: #3c4257;
-    }
-
-    .amount {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 17px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 16px;
-      gap: 8px;
-      text-align: right;
-      color: #1a1f36;
-    }
-
-    .description {
-      font-size: 13px;
-      line-height: 16px;
-      color: #4f566b;
-    }
-  }
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 1px 4px 1px 6px;
-  background: #cbf4c9;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  color: #0e6245;
 }
 </style>

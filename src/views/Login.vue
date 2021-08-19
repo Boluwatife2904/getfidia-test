@@ -116,10 +116,6 @@ export default {
     height: 800px;
     z-index: -1;
     width: 100%;
-
-    @media screen and (max-width: 1366px) {
-      height: 700px;
-    }
   }
 
   .page-content {
@@ -330,6 +326,10 @@ export default {
           }
         }
       }
+
+      @media screen and (max-width: 414px) {
+        padding: 30px 10px;
+      }
     }
   }
 }
@@ -363,10 +363,6 @@ export default {
   background: rgba(12, 0, 250, 0.5);
   z-index: 1;
   transform: rotate(168deg);
-
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
 }
 
 .left-blue-box {
@@ -382,15 +378,15 @@ export default {
   }
 
   @media screen and (max-width: 1368px) {
-    top: calc(50% - 30px);
+    top: calc(50% + 110px);
   }
 
     @media screen and (max-width: 1200px) {
-    top: calc(50% - 130px);
+    top: calc(50% + 80px);
   }
 
   @media screen and (max-width: 992px) {
-    top: calc(50% - 135px);
+    top: calc(50% + 75px);
   }
 }
 
@@ -406,15 +402,15 @@ export default {
   }
 
   @media screen and (max-width: 1368px) {
-    top: calc(50% - 10px);
+    top: calc(50% + 140px);
   }
 
   @media screen and (max-width: 1200px) {
-    top: calc(50% - 100px);
+    top: calc(50% + 110px);
   }
 
   @media screen and (max-width: 992px) {
-    top: calc(50% - 110px);
+    top: calc(50% + 100px);
   }
 }
 
@@ -430,15 +426,15 @@ export default {
   }
 
   @media screen and (max-width: 1368px) {
-    top: calc(30% - 75px);
+    top: calc(30% + 10px);
   }
 
    @media screen and (max-width: 1200px) {
-    top: calc(30% - 130px);
+    top: calc(30% + 24px);
   }
 
   @media screen and (max-width: 992px) {
-    top: 130px;
+    top: calc(30% + 50px);
   }
 }
 </style>
