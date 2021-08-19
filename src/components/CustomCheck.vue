@@ -1,10 +1,10 @@
 <template>
-  <label for="id" class="checkbox" :class="{ flex: label }">
+  <label :for="id" class="checkbox" :class="{ flex: label }">
     <input
-      @click="$emit('perform-action')"
+      @click.self="$emit('perform-action')"
       type="checkbox"
       class="input"
-      id="id"
+      :id="id"
       :checked="checked"
     />
     <div class="custom-check"></div>

@@ -130,7 +130,7 @@ export default {
 
     // LOGO
     .stripe-logo {
-      padding: 50px 30px;
+      padding: 40px 19px;
     }
 
     // LOGIN FORM
@@ -184,6 +184,14 @@ export default {
           border: 1px solid #d9dce1;
           border-radius: 5px;
           color: var(--grayNine);
+
+          &::placeholder {
+            font-family: "SFProText", sans-serif;
+          }
+        }
+
+        input[type="password"] {
+          font-family: "Verdana";
         }
 
         input:focus {
@@ -226,7 +234,7 @@ export default {
 
     // LOGIN FOOTER
     .footer {
-      padding: 30px;
+      padding: 32px 19px;
 
       // SIGN UP INSTEAD BUTTON
       .signup {

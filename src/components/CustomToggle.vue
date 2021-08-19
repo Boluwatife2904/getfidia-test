@@ -11,7 +11,12 @@
 <script>
 export default {
   name: "CustomToggle",
-  props: ["name"],
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
 };
 </script>
 

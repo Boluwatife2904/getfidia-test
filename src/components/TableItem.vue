@@ -60,7 +60,7 @@ li {
     flex-shrink: 0;
   }
 
-  .description {
+  .description { 
     flex: 0 0 50%;
     max-width: 50%;
     width: 100%;

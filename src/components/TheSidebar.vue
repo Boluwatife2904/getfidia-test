@@ -99,6 +99,9 @@
         </router-link>
       </li>
     </ul>
+    <button @click="$emit('toggle-sidebar')" class="close button">
+      <i class="fa fa-times"></i>
+    </button>
   </div>
 </template>
 
@@ -114,6 +117,7 @@ export default {
       default: false,
     },
   },
+  emits: ["toggle-sidebar"],
 };
 </script>
 
@@ -132,7 +136,7 @@ export default {
   flex-shrink: 0;
 
   .store-name {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
@@ -212,6 +216,19 @@ export default {
 
     &.visible {
       transform: translateX(0);
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 20px;
+    color: var(--graySeven);
+    display: none;
+
+    @media screen and (max-width: 1200px) {
+      display: block;
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="page-layout">
-    <TheSidebar :visible="showSidebar" />
+    <TheSidebar @toggle-sidebar="toggleSidebar" :visible="showSidebar" />
     <div class="main-content">
       <TheNavbar />
       <div class="content-wrapper">
