@@ -197,53 +197,6 @@ export default {
         }
       }
 
-      // Custom Checkbox
-      .custom-checkbox {
-        .checkbox {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-          margin-bottom: 15px;
-          color: var(--grayEight);
-          font-size: 14px;
-          font-weight: normal;
-
-          .input {
-            display: none;
-          }
-
-          .custom-check {
-            width: 16px;
-            height: 16px;
-            border: 2px solid #dfe3e8;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 6px;
-            flex-shrink: 0;
-            transition: all 0.15s linear;
-
-            &::after {
-              content: "\2714";
-              color: #ffffff;
-              transition: all 0.15s;
-              transform: scale(0);
-              font-size: 12px;
-            }
-          }
-        }
-
-        .input:checked + .custom-check {
-          background: var(--purpleColor);
-          border-color: var(--purpleColor);
-        }
-
-        .input:checked + .custom-check::after {
-          transform: scale(1);
-        }
-      }
-
       // Submit button
       .submit {
         width: 100%;
