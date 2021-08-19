@@ -79,7 +79,11 @@
                   </div>
                   <div class="customer">{{ item.customer }}</div>
                   <div class="date">{{ item.date }}</div>
-                  <div class="actions">...</div>
+                  <div class="actions">
+                    <button class="button">
+                      <img src="@/assets/images/dots.svg" alt="dots">
+                    </button>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -374,21 +378,28 @@ export default {
 }
 
 .table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 .table-header,
 .table-content li {
   display: flex;
+  gap: 10px;
   align-items: center;
-  padding: 14px 0;
+  padding: 14px 0 14px 4px;
   width: 100%;
   border-bottom: 1px solid #e3e8ee;
 
   .check {
-    flex: 0 0 4%;
-    max-width: 4%;
-    width: 100%;
+    // flex: 0 0 4%;
+    // max-width: 4%;
+    // width: 100%;
+    // padding-left: 10px;
+    width: 20px;
     flex-shrink: 0;
 
     span {
@@ -404,36 +415,41 @@ export default {
   }
 
   .amount {
-    flex: 0 0 17%;
-    max-width: 17%;
-        width: 100%;
+    // flex: 0 0 17%;
+    // max-width: 17%;
+    width: 195px;
+    // width: 100%;
     flex-shrink: 0;
   }
 
   .description {
-    flex: 0 0 50%;
-    max-width: 50%;
-        width: 100%;
+    // flex: 0 0 50%;
+    // max-width: 50%;
+    // width: 100%;
+    width: 550px;
     flex-shrink: 0;
   }
 
   .customer {
-    flex: 0 0 15%;
-    max-width: 15%;
-        width: 100%;
+    // flex: 0 0 15%;
+    // max-width: 15%;
+    // width: 100%;
+    width: 170px;
     flex-shrink: 0;
   }
 
   .date {
-    flex: 0 0 10%;
-    max-width: 10%;
-        width: 100%;
+    // flex: 0 0 10%;
+    // max-width: 10%;
+    // width: 100%;
+    width: 120px;
     flex-shrink: 0;
   }
 
   .actions {
-    flex: 1;
-        width: 100%;
+    // flex: 1;
+    // width: 100%;
+    margin-left: auto;
     flex-shrink: 0;
     text-align: right;
     padding-right: 16px;
@@ -455,6 +471,7 @@ export default {
     }
   }
 }
+
 .table-content {
   list-style: none;
 
@@ -498,13 +515,4 @@ export default {
   line-height: 14px;
   color: #0e6245;
 }
-
-// .table-wrapper {
-//   display: block;
-//   max-width: 1140px;
-//   width: 1140px;
-//   overflow-x: auto;
-//   -webkit-overflow-scrolling: touch;
-//   -ms-overflow-style: -ms-autohiding-scrollbar;
-// }
 </style>
