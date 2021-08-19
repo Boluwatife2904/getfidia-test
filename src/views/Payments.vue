@@ -5,7 +5,10 @@
       <TheNavbar />
       <div class="content-wrapper">
         <div class="header">
-          <h1 @click="toggleSidebar">Payments</h1>
+          <h1 >
+            <button class="button nav-opener" @click="toggleSidebar"><i class="fa fa-bars"></i></button>
+            Payments
+          </h1>
           <ul class="actions">
             <li>
               <the-button>
@@ -20,7 +23,7 @@
               </the-button>
             </li>
             <li>
-              <router-link to="/">
+              <router-link to="/" class="create-payment">
                 <img src="@/assets/images/plus-icon.svg" alt="plus-icon" />
                 Create payment
               </router-link>
@@ -286,7 +289,7 @@ export default {
           gap: 8px;
 
           li {
-            a {
+            .create-payment {
               text-decoration: none;
               background: var(--blueColor);
               box-shadow: 0px 2px 5px rgba(60, 66, 87, 0.08),
@@ -475,6 +478,16 @@ export default {
     @media screen and (max-width: 1200px) {
       display: none;
     }
+  }
+}
+
+// SIDEBAR TOGGLER
+.nav-opener {
+  display: none;
+  font-size: 24px;
+
+  @media screen and (max-width:1200px) {
+    display: inline-block;
   }
 }
 </style>
