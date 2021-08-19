@@ -219,7 +219,7 @@ export default {
 <style lang="scss" scoped>
 .page-layout {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
 
   .main-content {
     margin-left: 270px;
