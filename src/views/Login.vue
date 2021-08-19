@@ -377,12 +377,16 @@ export default {
   left: 30px;
   clip-path: polygon(6% 0, 100% 0%, 94% 100%, 0% 100%);
 
-    @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1440px) {
     top: calc(50% - 25px);
   }
 
   @media screen and (max-width: 1368px) {
     top: calc(50% - 30px);
+  }
+
+    @media screen and (max-width: 1200px) {
+    top: calc(50% - 130px);
   }
 
   @media screen and (max-width: 992px) {
@@ -405,6 +409,10 @@ export default {
     top: calc(50% - 10px);
   }
 
+  @media screen and (max-width: 1200px) {
+    top: calc(50% - 100px);
+  }
+
   @media screen and (max-width: 992px) {
     top: calc(50% - 110px);
   }
@@ -417,12 +425,16 @@ export default {
   right: -50px;
   clip-path: polygon(3% 0, 100% 0%, 97% 100%, 0% 100%);
 
-    @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1440px) {
     top: calc(30% - 85px);
   }
 
   @media screen and (max-width: 1368px) {
     top: calc(30% - 75px);
+  }
+
+   @media screen and (max-width: 1200px) {
+    top: calc(30% - 130px);
   }
 
   @media screen and (max-width: 992px) {
